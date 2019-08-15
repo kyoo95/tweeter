@@ -19,6 +19,7 @@
 
 .textbox {
   background: rgba(255,255,255,0.4);
+  resize: none;
   border-bottom: solid;
   border-left: none;
   border-right: none;
@@ -28,7 +29,7 @@
   display: block;
   outline: none;
   width: 180%;
-  height: 30p;
+  height: 100px;
   top: 30px;
   margin: 0 auto;
   padding: 10px;

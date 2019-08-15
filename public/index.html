@@ -37,12 +37,13 @@
 
 <body>
 
-  <!-- Top nav bar (fixed) -->
+  <!-- Top nav bar -->
   <nav class="navbar">
     <span class="navbar-logo">tweeter</span>
     <span class="navbar-tweet">Write a tweet</span>
   </nav>
 
+  <!-- Header -->
   <header class="profile">
     <div>
       <img class="avatar" src="/images/profile-hex.png">
@@ -53,8 +54,8 @@
     </div>
   </header>
 
-  <!-- Page-specific (main) content here -->
-  <main class="container">
+  <!-- Post new tweets -->
+  <main class="newtweetscontainer">
     <section class="new-tweet">
       <form method="POST" action="/tweets/">
         <textarea id= "textarea" class="textbox" name="text" placeholder="What are you humming about?"></textarea>
@@ -63,6 +64,10 @@
       </form>
     </section>
   </main>
+  <!-- Tweets-->
+  <div class= "tweetsContainer">
+
+  </div>
 
 </body>
 

@@ -27,7 +27,60 @@ main {
   display: flex;
   justify-content: center;
   background-color: #f4f1ec;
+  margin: 0px;
 }
+
+.bottomTweet {
+  display: flex;
+  justify-content: space-between;
+}
+
+.paragraphFormat {
+  border-bottom: solid; 
+  padding: 2%; 
+  margin-left: 5%; 
+  width: 90%;
+}
+
+.tweetIdFormat {
+  display: flex; 
+  justify-content: top"
+}
+
+.boxDesign {
+  border-style: solid; 
+  width: 100%; 
+}
+
+.boxDesign:hover {
+  box-shadow: 5px 5px black;
+}
+
+.handle {
+  display: none;
+  position: absolute;
+  right: 10%
+}
+
+.boxDesign:hover .handle{
+  display: block;
+}
+
+.buttons {
+  display:none;
+}
+
+.boxDesign:hover .buttons {
+  display: block;
+}
+
+section.boxDesign header {
+  padding: 2%;
+}
+
+
+
+
 
 
 /*
