@@ -31,14 +31,11 @@ const data = [
   }
 ]
 
-// will append tweets into the data file later on
+
 const renderTweets = function (tweets) {
-  // loops through tweets
   let array = []
   for (let tweet of tweets) {
-
     array.unshift(createTweetElement(tweet));
-
   }
   $("#tweetsContainer").append(array);
   // calls createTweetElement for each tweet
@@ -50,7 +47,7 @@ const renderTweets = function (tweets) {
 // creates a tweet html structure and returns it
 const createTweetElement = function (tweet) {
   let $tweet = $('<article>').addClass('tweet');
-  // ...
+
   const markup = `
 <section class="boxDesign" >
 <div style="padding: 2%">
@@ -88,9 +85,48 @@ const createTweetElement = function (tweet) {
   return $tweet;
 }
 
-renderTweets(data);
+function postTweets() {
+  $("form").on("submit", function(event) {
+    event.preventDefault();
+    let textInput = $("#textarea").serialize();
+    if (!isValidText(textInput)) {
+      $(".error-message").slideDown("slow", function() {
+      setTimeout(function(){$(".error-message").slideToggle()}, 1000);
+      });
+    } else {
+        $.ajax('/tweets/', {
+        method: 'POST',
+        data: $(this).serialize(),
+        dataType: 'text',   
+    }).done(function() {
+        $("#textarea").val('');
+        $("#counter").text("140");
+        data.content = "text= "
+
+        loadTweets(data);
+
+    }).error(function(){
+          console.log("Post ERROR")
+      })
+      }
+  })
+}
+
+  function loadTweets() {
+    event.preventDefault();
+    $.ajax( {
+      method: 'GET',
+      url: "/tweets/",
+      dataType: 'json',
+    }).done(function(data) { 
+    $("#tweetsContainer").empty();
+     renderTweets(data);
+    }).fail(function(){
+      console.log(" get tweet error")
+    })
+  };
 
 
 $(document).ready(function () {
-  createTweetElement();
+  
 });
