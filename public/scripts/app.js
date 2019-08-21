@@ -6,12 +6,10 @@
 
 
 // Fake data taken from initial-tweets.json
-const data = [
-  {
+const data = [{
     "user": {
       "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
+      "avatars": "https://i.imgur.com/73hZDYK.png",
       "handle": "@SirIsaac"
     },
     "content": {
@@ -23,7 +21,8 @@ const data = [
     "user": {
       "name": "Descartes",
       "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
+      "handle": "@rd" 
+    },
     "content": {
       "text": "Je pense , donc je suis"
     },
@@ -38,13 +37,17 @@ const renderTweets = function (tweets) {
     array.unshift(createTweetElement(tweet));
   }
   $("#tweetsContainer").append(array);
-  // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
+  // Calls createTweetElement for each tweet
+  // Cakes return value and appends it to the tweets container
 }
 
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 
-
-// creates a tweet html structure and returns it
+// Creates a tweet html structure and returns it
 const createTweetElement = function (tweet) {
   let $tweet = $('<article>').addClass('tweet');
 
@@ -62,18 +65,17 @@ const createTweetElement = function (tweet) {
     <br>
   <span>
     <p class ="paragraphFormat"> 
+    
     ${escape(tweet.content.text)}
     </p>
   </span>
   <span class="bottomTweet">
-    <div>${moment(
-      new Date(tweet.created_at)
-    ).fromNow()}
+    <div>
     <div>
       <span class="buttons">
-        <button>b1</button>
-        <button>b2</button>
-        <button>b3</button>
+        <i class="fas fa-flag"></i>
+        <i class="fas fa-retweet"></i>
+        <i class="fas fa-heart"></i>
       </span>
     </div>
   </span>
@@ -83,6 +85,27 @@ const createTweetElement = function (tweet) {
 `
   $tweet = $tweet.append(markup);
   return $tweet;
+}
+
+// Will load tweets live
+function loadTweets() {
+  event.preventDefault();
+  $.ajax({
+    method: 'GET',
+    url: "/tweets",
+    dataType: 'json',
+  }).done(function(data) { 
+    $("#tweetsContainer").empty();
+    renderTweets(data);
+  })
+}
+
+function isValidText(text) {
+  if (text == "text=" || text.length> 145) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 function postTweets() {
@@ -112,21 +135,15 @@ function postTweets() {
   })
 }
 
-  function loadTweets() {
-    event.preventDefault();
-    $.ajax( {
-      method: 'GET',
-      url: "/tweets/",
-      dataType: 'json',
-    }).done(function(data) { 
-    $("#tweetsContainer").empty();
-     renderTweets(data);
-    }).fail(function(){
-      console.log(" get tweet error")
-    })
-  };
-
+function toggleTextBox(){
+  $("#write").on("click", function(event) {
+    $(".new-tweet").slideToggle();
+  })
+}
 
 $(document).ready(function () {
-  
-});
+  $(".new-tweet").slideToggle();
+  loadTweets();
+  postTweets();
+  toggleTextBox();
+})

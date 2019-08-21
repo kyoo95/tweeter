@@ -1,19 +1,11 @@
 
-
-.navbar {
-  background-color: #4056A1;
-  color: #FFFFFF;
-  z-index: auto;
+nav{
   height: 120px;
-  padding-top: 1.5em;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-}
-
-.navbar-logo {
-  font-size: 40px;
+  width: 100%;
+  z-index: 5;
+  background-color: #4056A1;
   font-family: 'Bungee', cursive;
-}
-.navbar-tweet {
-  float: right;
+  color: #ffffff;
+  margin: 1.5ems;
+  position: fixed;
 }

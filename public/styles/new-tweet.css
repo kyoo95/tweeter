@@ -1,38 +1,30 @@
-
-.tweetbutton {
-  position: relative;
-  float: left;
-  top: 50px;
-  padding: 2px;
-  background-color: #4056A1;
-  color: white;
-  font-family: 'Bungee', cursive;
-}
-
-.counter {
-  position: relative;
-  float: right;
-  top: 50px;
-  left: 170px;
-  font-family: 'Bungee', cursive;
-}
-
-.textbox {
-  background: rgba(255,255,255,0.4);
-  resize: none;
-  border-bottom: solid;
+.new-tweet{
+  background-color: transparent;
+  color: #eeeeee;
+  outline: none;
+  outline-style: none;
+  border-top: none;
   border-left: none;
   border-right: none;
-  border-top: none;
-  border-bottom-color: #545149;
-  position: relative;
-  display: block;
+  border-bottom: solid #eeeeee 1px;
+  padding: 3px 10px;
+
+}
+
+.new-tweet h2{
+color: black;
+font-family: "Bungee","cursive", "sans-serif";
+}
+
+.new-tweet textarea:focus{
   outline: none;
-  width: 180%;
-  height: 100px;
-  top: 30px;
-  margin: 0 auto;
-  padding: 10px;
-  color: #545149;
-  background-color: #f4f1ec;
+}
+
+.new-tweet textarea{
+  width: 100%;
+  background-color: transparent;
+  border-top: transparent; 
+  border-left: transparent;
+  border-right: transparent;
+  color: black;
 }

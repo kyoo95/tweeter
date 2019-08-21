@@ -1,13 +1,9 @@
-
-
-.profile {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction:column;
+header {
+  text-align: center;
   background-color: orange;
   height: 400px;
   width: 100%;
+  background-image: url("/images/tile.png");
 }
 
 

@@ -4,6 +4,7 @@
 <head>
   <!-- Meta Information -->
   <title>Tweeter - Home Page</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
   <!-- External CSS -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -38,37 +39,44 @@
 <body>
 
   <!-- Top nav bar -->
-  <nav class="navbar">
-    <span class="navbar-logo">tweeter</span>
-    <span class="navbar-tweet">Write a tweet</span>
-  </nav>
-
+<nav id = "top-header">
+  <form id = "header">
+    <text>Tweeter</text>
+      <div id = "write">
+        <text >Write a new tweet</text>
+        <i id = "arrow" class="fas fa-angle-double-down"></i>
+      </div>
+  </form>
+</nav>
+<main class="container">
+<div class= "divider">
   <!-- Header -->
-  <header class="profile">
-    <div>
-      <img class="avatar" src="/images/profile-hex.png">
-    </div>
-    <br>
-    <div>
-      <h2 class="name">Your Name</h2>
-    </div>
+  <header id= header-margin>
+    <img id= header-image src="/images/profile-hex.png">
+    <h2 id= name-image>Your Name</h2>
   </header>
 
   <!-- Post new tweets -->
-  <main class="newtweetscontainer">
-    <section class="new-tweet">
-      <form method="POST" action="/tweets/">
-        <textarea id= "textarea" class="textbox" name="text" placeholder="What are you humming about?"></textarea>
-        <input class="tweetbutton" type="submit" value="Tweet">
-        <span id= "counter" class="counter">140</span>
-      </form>
-    </section>
-  </main>
-  <!-- Tweets-->
-  <div class= "tweetsContainer">
+<div class = "new-tweet-tweets-container">
+  <section class="new-tweet">
+    <h2>Compose Tweet</h2>
+    <form method="POST" action="/tweets" style="left: 5%">
+      <textarea id="textarea" name="text" placeholder="What are you humming about?"></textarea>
+      <input class = "submitTweet" type="submit" value="Tweet">
+      <span id="counter" class="counter" style="color: green">140</span>
+    </form>
+  </section>
+<div class ="error-message">
+  <text>Invalid Text</text>
+</div>
 
+   <!-- Tweets-->
+   <br>
+  <div id= "tweetsContainer">
   </div>
-
+  </div>
+</div>
+</div>
 </body>
-
+</main>
 </html>
