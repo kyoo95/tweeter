@@ -211,3 +211,8 @@ section.boxDesign header {
   float: right;
   cursor: pointer;
 }
+
+.new-tweet-tweets-container{
+  margin-top: 4rem;
+  padding: 30px;
+}
