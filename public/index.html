@@ -34,6 +34,11 @@
   <!-- Counter JS -->
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
 
 <body>
@@ -41,9 +46,9 @@
   <!-- Top nav bar -->
 <nav id = "top-header">
   <form id = "header">
-    <text>Tweeter</text>
-      <div id = "write">
-        <text >Write a new tweet</text>
+    <text class= "navbar-logo">Tweeter</text>
+      <div id = "write" vertical-align = "middle">
+        <text class= "navbar-write">Write a new tweet</text>
         <i id = "arrow" class="fas fa-angle-double-down"></i>
       </div>
   </form>
@@ -61,13 +66,16 @@
   <section class="new-tweet">
     <h2>Compose Tweet</h2>
     <form method="POST" action="/tweets" style="left: 5%">
-      <textarea id="textarea" name="text" placeholder="What are you humming about?"></textarea>
+      <textarea maxlength="140" resize= "none" id="textarea" name="text" placeholder="What are you humming about?"></textarea>
       <input class = "submitTweet" type="submit" value="Tweet">
       <span id="counter" class="counter" style="color: green">140</span>
     </form>
   </section>
 <div class ="error-message">
-  <text>Invalid Text</text>
+  <script>
+    
+  </script>
+  <text>Empty Text</text>
 </div>
 
    <!-- Tweets-->

@@ -7,5 +7,15 @@ nav{
   font-family: 'Bungee', cursive;
   color: #ffffff;
   margin: 1.5ems;
-  position: fixed;
+  padding-top: 1.5em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+.navbar-logo {
+  float: left;
+}
+
+.navbar-write {
+  float: right;
 }

@@ -4,7 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
 // Fake data taken from initial-tweets.json
 const data = [{
     "user": {
@@ -29,7 +28,6 @@ const data = [{
     "created_at": 1461113959088
   }
 ]
-
 
 const renderTweets = function (tweets) {
   let array = []
@@ -71,6 +69,10 @@ const createTweetElement = function (tweet) {
   </span>
   <span class="bottomTweet">
     <div>
+    ${moment(
+      new Date(tweet.created_at)
+    ).fromNow()}
+    </div>
     <div>
       <span class="buttons">
         <i class="fas fa-flag"></i>
@@ -101,10 +103,12 @@ function loadTweets() {
 }
 
 function isValidText(text) {
-  if (text == "text=" || text.length> 145) {
-    return false;
-  } else {
+  console.log(text)
+  console.log(text.length)
+  if (text.length == 5) {
     return true;
+  } else {
+    return false;
   }
 }
 
@@ -112,15 +116,15 @@ function postTweets() {
   $("form").on("submit", function(event) {
     event.preventDefault();
     let textInput = $("#textarea").serialize();
-    if (!isValidText(textInput)) {
+    if (isValidText(textInput)) {
       $(".error-message").slideDown("slow", function() {
-      setTimeout(function(){$(".error-message").slideToggle()}, 1000);
+      setTimeout(function(){$(".error-message").slideToggle()}, 500);
       });
     } else {
         $.ajax('/tweets/', {
         method: 'POST',
         data: $(this).serialize(),
-        dataType: 'text',   
+        dataType: 'text',  
     }).done(function() {
         $("#textarea").val('');
         $("#counter").text("140");

@@ -27,4 +27,13 @@ font-family: "Bungee","cursive", "sans-serif";
   border-left: transparent;
   border-right: transparent;
   color: black;
+  resize: none;
+}
+
+.date {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  height: 30px;
 }
